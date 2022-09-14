@@ -1,13 +1,13 @@
 """Computing increasing substrings."""
 
-# The Any annotations here is saying that we will accept any type.
+# The Any annotations here is saying that we will accept any .
 # They *should* be comparable, and it *is* possible to make such
 # an annotation, but it is tricky, and I don't want to confuse you
 # more than strictly necessary.
 from typing import Sequence, Any
 
 
-def is_increasing(x: Sequence[Any]) -> bool:
+def is_increasing(x): #Sequence[Any]) -> bool:
     """
     Determine if x is an increasing sequence.
 
@@ -28,12 +28,12 @@ def is_increasing(x: Sequence[Any]) -> bool:
     return True
 
 
-def substring_length(substring: tuple[int, int]) -> int:
+def substring_length(substring): #tuple[int, int]) -> int:
     """Give us the length of a substring, represented as a pair."""
     return substring[1] - substring[0]
 
 
-def longest_increasing_substring(x: Sequence[Any]) -> tuple[int, int]:
+def longest_increasing_substring(x): #Sequence[Any]) -> tuple[int, int]:
     """
     Locate the (leftmost) longest increasing substring.
 
@@ -48,5 +48,17 @@ def longest_increasing_substring(x: Sequence[Any]) -> tuple[int, int]:
     """
     # The leftmost empty string is our first best bet
     best = (0, 0)
-    # FIXME: explore the other possibilities
+    i,j=0,1
+    while j <= len(x):
+        if is_increasing == True:
+            if substring_length((i,j))>substring_length(best):
+                best(i,j)
+                j+=1
+            else:
+                j+=1
+        else:
+            i +=1
+            j=1+1
     return best
+
+print(longest_increasing_substring('abcabc'))
